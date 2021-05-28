@@ -45,10 +45,10 @@ public class SimpleLoginViewController implements Initializable {
         }
         else {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost/simple_login_db", "root", "");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/simple_login_db", "root", "");
                 
-                pst = conn.prepareStatement("SELECT * FROM users WHERE username=? AND password=?");
+                pst = conn.prepareStatement("SELECT * FROM user WHERE username=? AND password=?");
                 pst.setString(1, username);
                 pst.setString(2, password);
                 
